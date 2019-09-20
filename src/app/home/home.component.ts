@@ -1,31 +1,30 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
-import { Router } from '@angular/router';
+import {InteractionService} from '../interaction.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
+export class HomeComponent {
 
-export class AppComponent {
   title = 'Bloomberg OpenAPI';
   userNameEmail = 'Bob';
   username: string;
   nickName: string;
   password: string;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
+  baseUrl = 'http://localhost:5000/auth';
 
   constructor(private http: HttpClient, private router: Router) {
   }
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
-  baseUrl = 'http://localhost:5000/auth';
 
   onSubmit(form: NgForm) {
     if (form.valid) {
@@ -34,7 +33,11 @@ export class AppComponent {
       // formData.append('file', form.get('profile').value);
 
       this.http.post<any>(this.baseUrl, JSON.stringify(form.value), this.httpOptions).subscribe(
-        (res) => this.router.navigate(['/home']),
+        (res) => {
+          sessionStorage.setItem('ProductName', res.access_token);
+          this.router.navigate(['/dashboard-form']);
+          console.log(res.access_token);
+        },
         (err) => console.log(err)
       );
       /*this.http.post<any>(this.SERVER_URL, formData).subscribe(
@@ -44,6 +47,5 @@ export class AppComponent {
       // ...our form is valid, we can submit the data
     }
   }
+
 }
-
-
