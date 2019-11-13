@@ -1,0 +1,95 @@
+
+.container {
+margin-bottom: 20px;
+}
+.my-table {
+    width: 100%;
+}
+
+.my-table th.mat-header-cell {
+    text-align: left;
+
+}
+
+.mat-column-select {
+    overflow: visible;
+  }
+
+.my-table .mat-checkbox-inner-container{
+    position: relative !important;
+    top: 20px !important;
+  }
+
+.buttonFloatRight {
+  float: right;
+}
+
+
+.check-box-down .mat-checkbox-layout {
+  position: relative;
+  top:20px;
+}
+
+.check-box-down {
+  position: relative;
+  top:20px;
+}
+
+
+
+.example-card {
+ 
+    max-width: 264px;
+    float: left;
+    margin-right: 2px;
+    margin-left: 3px;
+    
+  
+}
+.example-card.mat-card {
+background: none;
+}
+
+
+.example-card p {
+  font-size: 13px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-card .mat-raised-button.mat-button-base.mat-primary {
+  width:100%;
+}
+
+.mat-card-header .mat-card-title{
+ font-size: 15px; 
+ font-weight: bold;
+ text-align: center;
+}
+
+.jumbotron{
+  background-color: transparent;
+  
+  padding: 10px 0 10px 0;
+
+}
+
+.jumbotron h1,p{
+  text-align: center;
+ 
+
+}
+.jumbotron h1{
+  
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.mat-card-image {
+width: 190px;
+background-position: center;
+margin-left: 20px;
+}

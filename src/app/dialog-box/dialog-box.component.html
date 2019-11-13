@@ -1,0 +1,40 @@
+<!-- dialog-box.component.html -->
+<div class="example-container">
+<h1 mat-dialog-title> <strong>{{action}} </strong></h1>
+<div mat-dialog-content class="example-container">
+   
+
+      <mat-form-field *ngIf="action != 'INGEST'; else ">
+        <mat-label>Database Type</mat-label>
+        <mat-select [(ngModel)]="local_data.Database_Type" name="food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'INGEST'; else ">
+    <input placeholder="{{action}} Connection Name" matInput [(ngModel)]="local_data.Connection_Name">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'INGEST'; else ">
+    <input placeholder="{{action}} Database Name" matInput [(ngModel)]="local_data.Database_Name">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'INGEST'; else elseTemplate">
+    <input placeholder="{{action}} Connection String" matInput [(ngModel)]="local_data.Connection_String">
+  </mat-form-field>
+  
+
+  <ng-template #elseTemplate>
+    <h6>Data has been <b> {{action}}ED </b> successfully</h6>
+    <button (click)="closeDialog()" mat-raised-button color="primary">Close</button>
+  </ng-template>
+  
+</div>
+<div mat-dialog-actions *ngIf="action != 'INGEST';">
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
+</div>
+

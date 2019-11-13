@@ -6,8 +6,8 @@ import { DashboardFormComponent } from './dashboard-form/dashboard-form.componen
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard-form', component: DashboardFormComponent }
-  // { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'dashboard-form', component: DashboardFormComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
-  title = 'Bloomberg OpenAPI';
+  title = 'Metadata Express';
   userNameEmail = 'Bob';
   username: string;
   nickName: string;
@@ -25,7 +25,7 @@ export class AppComponent {
     })
   };
 
-  baseUrl = 'http://localhost:5000/auth';
+  baseUrl = 'http://localhost:5050/auth';
 
   onSubmit(form: NgForm) {
     if (form.valid) {
